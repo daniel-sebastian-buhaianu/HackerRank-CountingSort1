@@ -10,26 +10,21 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
-
-    /*
-     * Complete the 'countingSort' function below.
-     *
-     * The function is expected to return an INTEGER_ARRAY.
-     * The function accepts INTEGER_ARRAY arr as parameter.
-     */
-
-    public static List<Integer> countingSort(List<Integer> arr) {
-        List<Integer> count = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            count.add(0);
+class Result
+{
+    public static List<Integer> countingSort(List<Integer> arr)
+    {
+        int MAX_VALUE = 99;
+        
+        List<Integer> counter = new ArrayList<>(Collections.nCopies(MAX_VALUE + 1, 0));
+        
+        for (int num : arr)
+        {
+            counter.set(num, counter.get(num) + 1);
         }
-        for (Integer number : arr) {
-            count.set(number, count.get(number) + 1);
-        }
-        return count;
+        
+        return counter;
     }
-
 }
 
 public class Solution {
